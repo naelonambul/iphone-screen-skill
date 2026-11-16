@@ -1,0 +1,4 @@
+interface:
+  display_name: "iPhone Screen"
+  short_description: "Capture the live screen of a USB-connected iPhone as a PNG"
+  default_prompt: "Use $iphone-screen to capture the connected iPhone's screen and look at it."

@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+src="$(cd "$(dirname "$0")" && pwd)/iphone-shot.swift"
+bin="$HOME/.cache/iphone-screen/iphone-shot"
+if [ ! "$bin" -nt "$src" ]; then
+    mkdir -p "$(dirname "$bin")"
+    swiftc -O -o "$bin" "$src"
+fi
+"$bin" "$@" && exit 0
+rc=$?
+[ "$rc" -eq 4 ] || exit "$rc"
+exec "$bin" "$@"
